@@ -271,6 +271,10 @@ enum ControlKey {
   RShift = 73;
   RControl = 74;
   RAlt = 75;
+  VolumeMute = 76; // mainly used on mobile devices as controlled side
+  VolumeUp = 77;
+  VolumeDown = 78;
+  Power = 79; // mainly used on mobile devices as controlled side
   CtrlAltDel = 100;
   LockScreen = 101;
 }
@@ -314,6 +318,8 @@ message Hash {
 message Clipboard {
   bool compress = 1;
   bytes content = 2;
+  int32 width = 3;
+  int32 height = 4;
 }
 
 enum FileType {
@@ -603,6 +609,8 @@ message OptionMessage {
 // Resolution custom_resolution = 13;
 // BoolOption support_windows_specific_session = 14;
   // starting from 15 please, do not use removed fields
+  BoolOption follow_remote_cursor = 15;
+  BoolOption follow_remote_window = 16;
 }
 
 message TestDelay {
@@ -765,6 +773,7 @@ message Misc {
     uint32 selected_sid = 35;
     DisplayResolution change_display_resolution = 36;
     MessageQuery message_query = 37;
+    int32 follow_current_display = 38;
   }
 }
 
